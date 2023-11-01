@@ -4,6 +4,7 @@ import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -13,6 +14,7 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 import tn.esprit.devops_project.entities.Stock;
 
 import java.util.List;
@@ -38,9 +40,8 @@ class StockServiceImplTest {
         final Stock stock = new Stock();
         stock.setTitle("Title");
         this.stockService.addStock(stock);
-        // Change the expected size to 2 because you're adding one stock
-        assertEquals(this.stockService.retrieveAllStock().size(), 2);
-        assertEquals(this.stockService.retrieveStock(2L).getTitle(), "Title");
+        assertEquals(this.stockService.retrieveAllStock().size(),2);
+        assertEquals(this.stockService.retrieveStock(2L).getTitle(),"Title");
     }
 
     @Test
@@ -54,8 +55,7 @@ class StockServiceImplTest {
     @DatabaseSetup("/data-set/stock-data.xml")
     void retrieveAllStock() {
         final List<Stock> allStocks = this.stockService.retrieveAllStock();
-        // Change the expected size to 1 to match your data setup
         assertEquals(allStocks.size(), 1);
+
     }
 }
-
