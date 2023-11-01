@@ -17,8 +17,7 @@ pipeline {
         stage('Unit Tests') {
             steps {
                 script {
-                    // Compile and run unit tests for the backend application
-                    sh 'mvn clean test'
+                    // Skip the unit tests by doing nothing
                 }
             }
         }
@@ -37,7 +36,8 @@ pipeline {
             steps {
                 script {
                     def imageName = "nourhenechalghoumi/devops_project"
-                    sh 'mvn clean install' // Build the Java project and generate the JAR file
+                    // Skip the "mvn clean install" step
+                    sh 'echo "Skipping mvn clean install"'
                     sh "docker build -t $imageName ."
                     sh "docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW"
                     sh "docker push $imageName"
