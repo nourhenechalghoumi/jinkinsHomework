@@ -16,9 +16,7 @@ pipeline {
 
         stage('Unit Tests') {
             steps {
-                script {
-                    // Skip the unit tests by doing nothing
-                }
+                sh 'echo "Skipping unit tests"'
             }
         }
 
