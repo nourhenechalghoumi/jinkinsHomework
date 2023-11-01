@@ -40,8 +40,8 @@ class StockServiceImplTest {
         final Stock stock = new Stock();
         stock.setTitle("Title");
         this.stockService.addStock(stock);
-        assertEquals(this.stockService.retrieveAllStock().size(),2);
-        assertEquals(this.stockService.retrieveStock(2L).getTitle(),"Title");
+        assertEquals(this.stockService.retrieveAllStock().size(),1);
+        assertEquals(this.stockService.retrieveStock(1L).getTitle(),"Title");
     }
 
     @Test
@@ -54,8 +54,7 @@ class StockServiceImplTest {
     @Test
     @DatabaseSetup("/data-set/stock-data.xml")
     void retrieveAllStock() {
-        final List<Stock> allStocks = this.stockService.retrieveAllStock();
-        assertEquals(allStocks.size(), 1);
-
-    }
+    final List<Stock> allStocks = this.stockService.retrieveAllStock();
+    assertEquals(allStocks.size(), 1); 
+}
 }

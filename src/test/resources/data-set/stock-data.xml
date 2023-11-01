@@ -4,6 +4,4 @@
             title="stock 1"
             ID_STOCK="1"
     />
-    <operator ID_Operateur="1" fname="Operator 1" />
-    <operator ID_Operateur="2" fname="Operator 2" />
 </dataset>
