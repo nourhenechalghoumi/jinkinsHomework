@@ -82,8 +82,7 @@
                 </configuration>
             </plugin>
             
-            <!-- Add the JaCoCo plugin for code coverage -->
-            <plugin>
+              <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.8</version>
@@ -104,10 +103,9 @@
             </plugin>
         </plugins>
         
-         <properties>
+        <!-- Configure Sonar properties -->
+        <properties>
             <sonar.java.binaries>target/classes</sonar.java.binaries>
         </properties>
-        
     </build>
-
 </project>
