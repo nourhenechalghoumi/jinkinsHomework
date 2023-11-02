@@ -81,6 +81,7 @@
                     </excludes>
                 </configuration>
             </plugin>
+            
             <!-- Add the JaCoCo plugin for code coverage -->
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -102,6 +103,10 @@
                 </executions>
             </plugin>
         </plugins>
+        
+         <properties>
+            <sonar.java.binaries>target/classes</sonar.java.binaries>
+        </properties>
         
     </build>
 
