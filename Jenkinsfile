@@ -90,18 +90,18 @@ pipeline {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
         }
-
+        
         stage('Build & Push Docker Image (Backend)') {
             steps {
-                def imageName = "nourhenechalghoumi/devops_project"
                 script {
+                    def imageName = "nourhenechalghoumi/devops_project"
                     sh "docker build -t $imageName ."
                     sh "docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW"
                     sh "docker push $imageName"
                 }
             }
         }
-
+    
         // stage('Build Docker Image (Frontnd)') {
         //     steps {
         //         def imageName = "nourhenechalghoumi/devops_project"
