@@ -102,10 +102,5 @@
                 </executions>
             </plugin>
         </plugins>
-        
-        <!-- Configure Sonar properties -->
-        <properties>
-            <sonar.java.binaries>target/classes</sonar.java.binaries>
-        </properties>
     </build>
 </project>
